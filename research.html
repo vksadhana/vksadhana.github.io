@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>research — sadhana vasanthakumar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="index.html" class="nav-name">sv</a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">home</a>
+            <a href="about.html">about</a>
+            <a href="experience.html">experience</a>
+            <a href="projects.html">projects</a>
+            <a href="research.html" class="active">research</a>
+            <a href="gallery.html">gallery</a>
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="toggle dark mode">
+            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+    </nav>
+
+    <div class="page-main">
+        <p class="page-title">research</p>
+
+        <div class="research-item">
+            <h3>multi-agent llm hallucination self-correction</h3>
+            <div class="venue">rutgers cs dept — senior thesis · in progress</div>
+            <p>designing agentic workflows where multiple llms collaboratively detect and correct hallucinations in each other's outputs. exploring whether agent debate and iterative self-critique can reduce factual error rates without human-in-the-loop correction.</p>
+            <p>advisor: prof. arpita biswas</p>
+            <div class="tags">
+                <span class="tag">agentic ai</span>
+                <span class="tag">llms</span>
+                <span class="tag">hallucination</span>
+                <span class="tag">multi-agent</span>
+            </div>
+        </div>
+
+        <div class="research-item">
+            <h3>quantifying generative ai's impact on workforce skill demands in agriculture and sustainability</h3>
+            <div class="venue">aresty research center — presented at njbda symposium, rowan university</div>
+            <p>led a team of 5 analyzing 10,000+ job postings to measure how generative ai adoption is shifting skill requirements in agriculture and sustainability sectors. built custom nlp pipelines for skill extraction and classification. conducted statistical analysis (regression, t-tests, anova) revealing significant increases in digital skills demand. co-authoring paper with rutgers economics department.</p>
+            <div class="tags">
+                <span class="tag">nlp</span>
+                <span class="tag">labor economics</span>
+                <span class="tag">logistic regression</span>
+                <span class="tag">anova</span>
+                <span class="tag">web scraping</span>
+            </div>
+        </div>
+
+        <div class="research-item">
+            <h3>predictive outreach for at-risk cs students</h3>
+            <div class="venue">rutgers cs dept — qualitative research</div>
+            <p>qualitative interview study examining a predictive outreach system for at-risk introductory cs students. developed codebooks, conducted structured interview memos, and analyzed themes around student perception, faculty trust, and intervention efficacy.</p>
+            <div class="tags">
+                <span class="tag">qualitative research</span>
+                <span class="tag">education technology</span>
+                <span class="tag">cs education</span>
+            </div>
+        </div>
+
+        <div class="research-item">
+            <h3>undergraduate peer reviewer</h3>
+            <div class="venue">aresty rutgers undergraduate research journal (rurj) · aug 2024 – present</div>
+            <p>certified peer reviewer evaluating undergraduate research submissions through literature review and critical analysis. assessing academic rigor, clarity, and scholarly merit across disciplines.</p>
+            <div class="tags">
+                <span class="tag">peer review</span>
+                <span class="tag">academic publishing</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="theme.js"></script>
+</body>
+</html>
