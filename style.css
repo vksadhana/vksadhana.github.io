@@ -1,1143 +1,191 @@
-/* ===== TOKENS ===== */
-:root {
-    --bg: #EEF0FA;
-    --bg-secondary: #E4E7F7;
-    --fg: #1a1a2e;
-    --dim: #7878a0;
-    --link: #1a1a2e;
-    --accent: #6B6FD4;
-    --hover-bg: #1a1a2e;
-    --hover-fg: #EEF0FA;
-    --border: #d0d4ee;
-    --font-mono: 'DM Mono', 'Menlo', monospace;
-    --font-sans: 'DM Sans', sans-serif;
-    --tag-bg: #dde0f5;
-}
-
-[data-theme="dark"] {
-    --bg: #181827;
-    --bg-secondary: #22223a;
-    --fg: #e8eaf6;
-    --dim: #8080aa;
-    --link: #e8eaf6;
-    --accent: #9b9ef0;
-    --hover-bg: #e8eaf6;
-    --hover-fg: #181827;
-    --border: #2e2e4a;
-    --tag-bg: #2a2a44;
-}
-
-/* ===== RESET ===== */
-*, *::before, *::after { box-sizing: border-box; }
-
-html { font-size: 16px; height: 100%; scroll-behavior: smooth; }
-
-body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: var(--font-mono);
-    font-size: clamp(0.72rem, 1.4vw, 0.88rem);
-    line-height: 1.7;
-    margin: 0;
-    padding: 0;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-/* ===== NAV ===== */
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 2.5rem;
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    background: var(--bg);
-    z-index: 100;
-    transition: background 0.3s ease;
-}
-
-.nav-name {
-    font-weight: 500;
-    font-size: 0.95rem;
-    letter-spacing: 0.05em;
-    color: var(--fg);
-    text-decoration: none;
-}
-
-.nav-links {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.nav-links a {
-    color: var(--dim);
-    text-decoration: none;
-    font-size: 0.78rem;
-    transition: color 0.15s ease;
-    position: relative;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: var(--accent);
-    transition: width 0.2s ease;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: var(--fg);
-}
-
-.nav-links a:hover::after,
-.nav-links a.active::after {
-    width: 100%;
-}
-
-.theme-toggle {
-    background: none;
-    border: 1px solid var(--border);
-    color: var(--fg);
-    cursor: pointer;
-    padding: 0.3rem 0.5rem;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    transition: border-color 0.2s, background 0.2s;
-}
-
-.theme-toggle:hover {
-    background: var(--bg-secondary);
-}
-
-/* ===== MAIN ===== */
-main {
-    width: fit-content;
-    max-width: min(680px, 90vw);
-    margin: 0 auto;
-    padding: 4rem 1rem 6rem;
-}
-
-h1 {
-    font-weight: 500;
-    font-size: clamp(1rem, 2vw, 1.15rem);
-    margin: 0 0 0.6rem 0;
-    letter-spacing: 0.01em;
-}
-
-h2 {
-    font-weight: 500;
-    font-size: inherit;
-    margin: 2rem 0 0.5rem;
-}
-
-p {
-    margin: 0 0 0.9rem;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-li {
-    margin-bottom: 0.55rem;
-    padding-left: 0;
-}
-
-li::before {
-    content: "- ";
-    color: var(--dim);
-}
-
-/* ===== LINKS ===== */
-a {
-    color: var(--link);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-    text-decoration-color: var(--border);
-    transition: background 0.15s, color 0.15s, text-decoration-color 0.15s;
-    position: relative;
-}
-
-a:hover {
-    background: var(--hover-bg);
-    color: var(--hover-fg);
-    text-decoration: none;
-    border-radius: 2px;
-    padding: 0 2px;
-    margin: 0 -2px;
-}
-
-/* ===== TOOLTIP ===== */
-[data-tooltip] {
-    position: relative;
-}
-
-[data-tooltip]::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: calc(100% + 6px);
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--hover-bg);
-    color: var(--hover-fg);
-    padding: 0.2rem 0.55rem;
-    font-size: 0.68rem;
-    white-space: nowrap;
-    border-radius: 3px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.18s ease, transform 0.18s ease;
-    transform: translateX(-50%) translateY(4px);
-    z-index: 10;
-}
-
-[data-tooltip]:hover::after {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-}
-
-/* ===== SOCIAL ICONS ===== */
-.social-links {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.6rem;
-    align-items: center;
-}
-
-.social-links a {
-    color: var(--dim);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    transition: color 0.15s;
-}
-
-.social-links a:hover {
-    color: var(--fg);
-    background: none;
-    padding: 0;
-    margin: 0;
-}
-
-.social-links a span {
-    font-size: 0.74rem;
-    margin-left: 0.35rem;
-}
-
-/* ===== DIM ===== */
-.dim {
-    color: var(--dim);
-}
-
-.dim a {
-    color: var(--dim);
-    text-decoration-color: transparent;
-}
-
-.dim a:hover {
-    background: var(--hover-bg);
-    color: var(--hover-fg);
-}
-
-/* ===== SELECTION ===== */
-::selection {
-    background: var(--fg);
-    color: var(--bg);
-}
-
-/* ===== PAGE SECTIONS (for inner pages) ===== */
-.page-main {
-    max-width: min(780px, 90vw);
-    margin: 0 auto;
-    padding: 3.5rem 1rem 6rem;
-}
-
-.page-title {
-    font-size: clamp(0.9rem, 2vw, 1.05rem);
-    font-weight: 500;
-    margin: 0 0 2.5rem;
-    color: var(--dim);
-}
-
-/* ===== EXPERIENCE CARDS ===== */
-.exp-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-}
-
-.exp-item {
-    border-left: 2px solid var(--border);
-    padding-left: 1.2rem;
-    transition: border-color 0.2s;
-}
-
-.exp-item:hover {
-    border-color: var(--accent);
-}
-
-.exp-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 0.25rem;
-}
-
-.exp-role {
-    font-weight: 500;
-    font-size: inherit;
-}
-
-.exp-date {
-    color: var(--dim);
-    font-size: 0.75rem;
-}
-
-.exp-org {
-    color: var(--dim);
-    margin-bottom: 0.5rem;
-    font-size: 0.82rem;
-}
-
-.exp-desc {
-    font-size: 0.82rem;
-    line-height: 1.65;
-    color: var(--fg);
-    opacity: 0.85;
-}
-
-/* ===== TAGS ===== */
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-top: 0.6rem;
-}
-
-.tag {
-    background: var(--tag-bg);
-    color: var(--dim);
-    padding: 0.15rem 0.5rem;
-    border-radius: 3px;
-    font-size: 0.68rem;
-}
-
-/* ===== PROJECT CARDS ===== */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1rem;
-}
-
-.project-card {
-    border: 1px solid var(--border);
-    padding: 1.2rem 1.3rem;
-    border-radius: 6px;
-    transition: border-color 0.2s, transform 0.2s;
-    background: var(--bg);
-}
-
-.project-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-}
-
-.project-card h3 {
-    font-size: inherit;
-    font-weight: 500;
-    margin: 0 0 0.4rem;
-}
-
-.project-card h3 a {
-    text-decoration: none;
-    color: var(--fg);
-}
-
-.project-card h3 a:hover {
-    background: none;
-    color: var(--accent);
-    padding: 0;
-    margin: 0;
-}
-
-.project-card p {
-    color: var(--dim);
-    font-size: 0.8rem;
-    margin: 0 0 0.8rem;
-    line-height: 1.6;
-}
-
-/* ===== RESEARCH ===== */
-.research-intro {
-    max-width: 620px;
-    margin: -1.2rem 0 2.2rem;
-}
-
-.research-intro p {
-    color: var(--dim);
-    font-size: 0.84rem;
-    line-height: 1.75;
-}
-
-.research-timeline {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 1.35rem;
-    padding-left: 1.45rem;
-}
-
-.research-timeline::before {
-    content: '';
-    position: absolute;
-    top: 0.35rem;
-    bottom: 0.35rem;
-    left: 0.35rem;
-    width: 1px;
-    background: linear-gradient(to bottom, transparent, var(--accent) 9%, var(--border) 88%, transparent);
-}
-
-.research-item {
-    position: relative;
-}
-
-.research-item::before {
-    content: '';
-    position: absolute;
-    top: 0.55rem;
-    left: -1.32rem;
-    width: 0.58rem;
-    height: 0.58rem;
-    border: 1px solid var(--accent);
-    border-radius: 50%;
-    background: var(--bg);
-    box-shadow: 0 0 0 5px var(--bg);
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.research-item:hover::before {
-    background: var(--accent);
-    transform: scale(1.18);
-}
-
-.research-date {
-    color: var(--accent);
-    font-size: 0.68rem;
-    letter-spacing: 0.04em;
-    margin: 0 0 0.45rem;
-}
-
-.research-card {
-    display: grid;
-    grid-template-columns: minmax(92px, 0.42fr) minmax(0, 1fr);
-    gap: 1rem;
-    align-items: stretch;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: color-mix(in srgb, var(--bg) 84%, var(--bg-secondary));
-    padding: 0.95rem;
-    overflow: hidden;
-    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.research-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-3px);
-    box-shadow: 0 16px 30px rgba(26, 26, 46, 0.08);
-}
-
-[data-theme="dark"] .research-card:hover {
-    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
-}
-
-.research-visual {
-    min-height: 132px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    background:
-        linear-gradient(145deg, color-mix(in srgb, var(--accent) 20%, transparent), transparent 55%),
-        var(--bg-secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.research-visual::after {
-    content: '';
-    position: absolute;
-    inset: auto -20% -35% 18%;
-    height: 58%;
-    border-radius: 50%;
-    background: color-mix(in srgb, var(--accent) 18%, transparent);
-    transition: transform 0.25s ease, opacity 0.25s ease;
-}
-
-.research-card:hover .research-visual::after {
-    transform: translateY(-10px) scale(1.08);
-    opacity: 0.85;
-}
-
-.research-visual svg {
-    width: min(78%, 104px);
-    height: auto;
-    position: relative;
-    z-index: 1;
-    fill: none;
-    stroke: var(--fg);
-    stroke-width: 4;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    opacity: 0.82;
-    transition: transform 0.25s ease, stroke 0.25s ease;
-}
-
-.research-card:hover .research-visual svg {
-    stroke: var(--accent);
-    transform: translateY(-3px) scale(1.04);
-}
-
-.research-content {
-    min-width: 0;
-}
-
-.research-kicker {
-    color: var(--dim);
-    font-size: 0.68rem;
-    letter-spacing: 0.03em;
-    margin: 0 0 0.2rem;
-}
-
-.research-item h3 {
-    font-size: clamp(0.92rem, 1.9vw, 1.05rem);
-    font-weight: 500;
-    margin: 0 0 0.2rem;
-    line-height: 1.35;
-}
-
-.research-item .venue {
-    color: var(--accent);
-    font-size: 0.76rem;
-    margin-bottom: 0.55rem;
-}
-
-.research-item p {
-    font-size: 0.8rem;
-    color: var(--dim);
-    margin: 0 0 0.7rem;
-    line-height: 1.66;
-}
-
-.research-hover {
-    max-height: 0;
-    overflow: hidden;
-    color: var(--fg);
-    font-size: 0.73rem;
-    opacity: 0;
-    border-left: 2px solid var(--accent);
-    padding-left: 0.65rem;
-    margin: 0;
-    transition: max-height 0.28s ease, opacity 0.2s ease, margin 0.2s ease;
-}
-
-.research-card:hover .research-hover,
-.research-card:focus-within .research-hover {
-    max-height: 4rem;
-    opacity: 0.82;
-    margin: 0.15rem 0 0.85rem;
-}
-
-.robot-visual {
-    background:
-        linear-gradient(145deg, rgba(107, 111, 212, 0.2), transparent 56%),
-        linear-gradient(35deg, transparent 0 42%, rgba(107, 111, 212, 0.12) 42% 45%, transparent 45%),
-        var(--bg-secondary);
-}
-
-.fairness-visual {
-    background:
-        radial-gradient(circle at 72% 28%, rgba(107, 111, 212, 0.22), transparent 26%),
-        var(--bg-secondary);
-}
-
-.education-visual {
-    background:
-        linear-gradient(180deg, rgba(107, 111, 212, 0.16), transparent),
-        repeating-linear-gradient(0deg, transparent 0 13px, rgba(107, 111, 212, 0.09) 13px 14px),
-        var(--bg-secondary);
-}
-
-.art-visual {
-    background:
-        radial-gradient(circle at 50% 48%, rgba(107, 111, 212, 0.2), transparent 36%),
-        conic-gradient(from 130deg, transparent, rgba(107, 111, 212, 0.13), transparent 55%),
-        var(--bg-secondary);
-}
-
-.language-visual {
-    background:
-        linear-gradient(120deg, rgba(107, 111, 212, 0.18), transparent 48%),
-        repeating-linear-gradient(90deg, transparent 0 15px, rgba(107, 111, 212, 0.08) 15px 16px),
-        var(--bg-secondary);
-}
-
-.market-visual {
-    background:
-        linear-gradient(160deg, rgba(107, 111, 212, 0.18), transparent 45%),
-        repeating-linear-gradient(90deg, transparent 0 18px, rgba(107, 111, 212, 0.08) 18px 19px),
-        var(--bg-secondary);
-}
-
-.review-visual {
-    background:
-        linear-gradient(145deg, rgba(107, 111, 212, 0.16), transparent 56%),
-        repeating-linear-gradient(0deg, transparent 0 16px, rgba(107, 111, 212, 0.08) 16px 17px),
-        var(--bg-secondary);
-}
-
-@media (max-width: 700px) {
-    .research-timeline {
-        padding-left: 1rem;
-    }
-
-    .research-timeline::before {
-        left: 0.15rem;
-    }
-
-    .research-item::before {
-        left: -1.12rem;
-    }
-
-    .research-card {
-        grid-template-columns: 1fr;
-        gap: 0.85rem;
-    }
-
-    .research-visual {
-        min-height: 118px;
-        aspect-ratio: 16 / 9;
-    }
-
-    .research-card:hover {
-        transform: translateY(-2px);
-    }
-}
-
-/* ===== GALLERY ===== */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.gallery-item {
-    aspect-ratio: 1;
-    background: var(--bg-secondary);
-    border-radius: 5px;
-    border: 1px solid var(--border);
-    overflow: hidden;
-    position: relative;
-    transition: transform 0.2s;
-}
-
-.gallery-item:hover {
-    transform: scale(1.02);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.gallery-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--dim);
-    font-size: 0.75rem;
-    text-align: center;
-    padding: 1rem;
-}
-
-/* ===== ABOUT PAGE ===== */
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-}
-
-@media (max-width: 600px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-    nav {
-        padding: 1rem 1.2rem;
-    }
-    .nav-links {
-        gap: 0.9rem;
-    }
-}
-
-.about-text p {
-    margin-bottom: 1rem;
-    font-size: 0.85rem;
-    line-height: 1.75;
-}
-
-.about-photo {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    aspect-ratio: 3/4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--dim);
-    font-size: 0.75rem;
-}
-
-.about-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 6px;
-}
-
-/* ===== FADE IN ===== */
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-main, .page-main {
-    animation: fadeUp 0.4s ease forwards;
-}
-
-/* ===== 2026 CONTENT REFRESH ===== */
-.home-main {
-    width: min(920px, 92vw);
-    max-width: none;
-}
-
-.wide-page {
-    max-width: min(1040px, 92vw);
-}
-
-.home-hero {
-    padding: 0.25rem 0 1.5rem;
-}
-
-.eyebrow {
-    color: var(--accent);
-    font-size: 0.72rem;
-    margin-bottom: 0.35rem;
-}
-
-.home-hero h1,
-.about-text h1 {
-    font-family: var(--font-sans);
-    font-size: clamp(2.25rem, 7vw, 5.5rem);
-    font-weight: 500;
-    line-height: 0.95;
-    margin: 0 0 1rem;
-}
-
-.about-text h1 {
-    font-size: clamp(1.45rem, 3vw, 2.3rem);
-    line-height: 1.05;
-}
-
-.home-bio {
-    max-width: 720px;
-    font-size: clamp(0.9rem, 1.5vw, 1rem);
-    color: var(--fg);
-}
-
-.home-links,
-.tab-bar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem;
-    margin: 1.35rem 0 0;
-}
-
-.home-links a,
-.tab-bar a,
-.ghost-link {
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    color: var(--fg);
-    font-size: 0.72rem;
-    padding: 0.32rem 0.75rem;
-    text-decoration: none;
-}
-
-.home-links a:hover,
-.tab-bar a:hover,
-.ghost-link:hover {
-    border-color: var(--accent);
-    background: var(--hover-bg);
-    color: var(--hover-fg);
-    margin: 0;
-    padding: 0.32rem 0.75rem;
-}
-
-.home-panel,
-.section-block {
-    margin-top: 2.7rem;
-}
-
-.prev-line {
-    color: var(--dim);
-    font-size: 0.78rem;
-    margin-top: 0.8rem;
-}
-
-.home-panel h2,
-.section-block h2 {
-    color: var(--dim);
-    font-size: 0.78rem;
-    margin-bottom: 0.8rem;
-}
-
-.mini-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-}
-
-.mini-grid div,
-.award-card {
-    border-left: 2px solid var(--accent);
-    background: color-mix(in srgb, var(--bg-secondary) 58%, transparent);
-    padding: 0.8rem 0.95rem;
-}
-
-.mini-grid strong,
-.mini-grid span {
-    display: block;
-}
-
-.mini-grid span {
-    color: var(--dim);
-    margin-top: 0.25rem;
-}
-
-.compact-list.two-col {
-    columns: 2;
-    column-gap: 2rem;
-}
-
-.skill-cloud {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-}
-
-.skill-cloud span {
-    background: var(--tag-bg);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    color: var(--fg);
-    font-size: 0.7rem;
-    padding: 0.2rem 0.55rem;
-}
-
-.about-page {
-    max-width: min(960px, 92vw);
-}
-
-.about-page .about-grid {
-    grid-template-columns: minmax(240px, 0.78fr) minmax(0, 1.22fr);
-    gap: 3rem;
-    align-items: stretch;
-}
-
-.about-page .about-photo {
-    aspect-ratio: 4 / 5;
-    min-height: 420px;
-}
-
-.about-text {
-    align-self: center;
-}
-
-.info-board,
-.award-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 0.85rem;
-    margin: 2.5rem auto 0;
-}
-
-.info-board {
-    max-width: 820px;
-}
-
-.info-board div {
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 0.9rem;
-    background: color-mix(in srgb, var(--bg-secondary) 45%, transparent);
-    text-align: center;
-}
-
-.info-board h2 {
-    margin-top: 0;
-}
-
-.info-board p {
-    color: var(--dim);
-    font-size: 0.8rem;
-    margin: 0;
-}
-
-.side-jump {
-    position: fixed;
-    top: 45%;
-    left: 1.2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-    z-index: 60;
-}
-
-.side-jump a {
-    border-left: 3px solid var(--border);
-    color: var(--dim);
-    font-size: 0.68rem;
-    padding: 0.15rem 0 0.15rem 0.5rem;
-    text-decoration: none;
-}
-
-.side-jump a:hover {
-    border-color: var(--accent);
-    background: transparent;
-    color: var(--fg);
-    margin: 0;
-    padding: 0.15rem 0 0.15rem 0.5rem;
-}
-
-.exp-item {
-    background: color-mix(in srgb, var(--bg-secondary) 35%, transparent);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--border);
-    border-radius: 8px;
-    padding: 1rem 1.1rem;
-}
-
-.logo-card {
-    display: grid;
-    grid-template-columns: 58px minmax(0, 1fr);
-    gap: 1rem;
-    align-items: start;
-}
-
-.org-logo {
-    width: 46px;
-    height: 46px;
-    object-fit: contain;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--bg);
-    padding: 0.45rem;
-    justify-self: center;
-}
-
-.logo-fallback {
-    align-items: center;
-    color: var(--accent);
-    display: flex;
-    font-family: var(--font-sans);
-    font-size: 0.92rem;
-    font-weight: 500;
-    justify-content: center;
-    text-transform: uppercase;
-}
-
-.exp-body {
-    min-width: 0;
-}
-
-.exp-role {
-    font-family: var(--font-sans);
-    font-size: clamp(1rem, 1.8vw, 1.2rem);
-    letter-spacing: 0;
-}
-
-.exp-desc {
-    max-width: 880px;
-}
-
-.activity-board {
-    margin-top: 1.6rem;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1rem 1.1rem;
-    background: color-mix(in srgb, var(--bg-secondary) 28%, transparent);
-}
-
-.page-heading-row {
-    align-items: baseline;
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-}
-
-.project-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-}
-
-.project-card {
-    min-height: 235px;
-    display: flex;
-    flex-direction: column;
-}
-
-.project-card .tags {
-    margin-top: auto;
-}
-
-.project-card.featured {
-    border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
-}
-
-.project-topline {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.6rem;
-    color: var(--accent);
-    font-size: 0.66rem;
-    margin-bottom: 0.7rem;
-}
-
-.research-grid {
-    display: grid;
-    gap: 1rem;
-}
-
-.research-card.compact {
-    grid-template-columns: 96px minmax(0, 1fr);
-    padding: 1.05rem;
-    align-items: start;
-}
-
-.research-card.highlight {
-    border-color: color-mix(in srgb, var(--accent) 60%, var(--border));
-}
-
-.logo-slot {
-    align-items: center;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    color: var(--accent);
-    display: flex;
-    font-family: var(--font-sans);
-    font-size: 1.05rem;
-    justify-content: center;
-    min-height: 88px;
-    padding: 0.8rem;
-    text-transform: uppercase;
-}
-
-.logo-slot img {
-    max-width: 58px;
-    max-height: 58px;
-    object-fit: contain;
-}
-
-details {
-    border-left: 2px solid var(--accent);
-    color: var(--dim);
-    font-size: 0.74rem;
-    margin: 0.7rem 0;
-    padding-left: 0.75rem;
-}
-
-summary {
-    color: var(--fg);
-    cursor: pointer;
-}
-
-.gallery-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-}
-
-.gallery-card p {
-    color: var(--dim);
-    font-size: 0.76rem;
-    line-height: 1.45;
-    margin: 0;
-}
-
-.gallery-item {
-    aspect-ratio: 4 / 3;
-}
-
-.gallery-placeholder {
-    background:
-        linear-gradient(135deg, color-mix(in srgb, var(--accent) 14%, transparent), transparent 58%),
-        var(--bg-secondary);
-    text-transform: lowercase;
-}
-
-@media (max-width: 960px) {
-    .side-jump {
-        display: none;
-    }
-}
-
-@media (max-width: 700px) {
-    .mini-grid,
-    .about-page .about-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .compact-list.two-col {
-        columns: 1;
-    }
-
-    .about-page .about-photo {
-        min-height: 0;
-    }
-
-    .research-card.compact {
-        grid-template-columns: 1fr;
-    }
-
-    .logo-slot {
-        width: 86px;
-        min-height: 72px;
-    }
-
-    .logo-card {
-        grid-template-columns: 1fr;
-    }
-
-    .org-logo {
-        justify-self: start;
-    }
-}
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gallery - sadhana vasanthakumar</title>
+    <link rel="icon" type="image/png" href="./icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="index.html" class="nav-name">sv</a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">home</a>
+            <a href="about.html">about</a>
+            <a href="experience.html">experience + leadership</a>
+            <a href="projects.html">projects</a>
+            <a href="research.html">research</a>
+            <a href="gallery.html" class="active">gallery</a>
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="toggle dark mode">
+            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+    </nav>
+
+    <div class="page-main wide-page">
+        <p class="page-title">gallery</p>
+
+        <div class="tab-bar">
+            <a href="#internships">internships + fellowships</a>
+            <a href="#conferences">conferences</a>
+            <a href="#presentations">presentations</a>
+            <a href="#community">community</a>
+        </div>
+
+        <section id="internships" class="section-block">
+            <h2>internships + externships + fellowships</h2>
+            <div class="gallery-grid">
+                <article class="gallery-card">
+                    <div class="gallery-item gallery-focus-up" data-fallback="everytown labs">
+                        <img src="images/everytown-labs.png" alt="everytown labs internship" loading="lazy">
+                    </div>
+                    <p>data & ai internship</p>
+                </article>
+
+                <article class="gallery-card">
+                    <div class="gallery-item" data-fallback="accenture">
+                        <img src="images/accenture-btt.png" alt="accenture and break through tech ai studio" loading="lazy">
+                    </div>
+                    <p>break through tech ai studio</p>
+                </article>
+
+                <article class="gallery-card">
+                    <div class="gallery-item" data-fallback="ai4all">
+                        <img src="images/ai4all-symposium.png" alt="ai4all ignite symposium" loading="lazy">
+                    </div>
+                    <p>ignite symposium + fellowship</p>
+                </article>
+
+                <article class="gallery-card">
+                    <div class="gallery-item" data-fallback="pamten">
+                        <img src="images/pamten-externship.png" alt="pamten technology externship" loading="lazy">
+                    </div>
+                    <p>technology externship</p>
+                </article>
+
+                <article class="gallery-card">
+                    <div class="gallery-item" data-fallback="lcn consulting">
+                        <img src="images/lcn-consulting-poster.png" alt="lcn consulting mbs externship poster" loading="lazy">
+                    </div>
+                    <p>mbs externship poster</p>
+                </article>
+
+                <article class="gallery-card">
+                    <div class="gallery-item" data-fallback="assignment guru">
+                        <img src="images/assignment-guru-meetup.png" alt="assignment guru micro-internship meet up" loading="lazy">
+                    </div>
+                    <p>micro-internship meet up</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="conferences" class="section-block">
+            <h2>conferences</h2>
+            <div class="gallery-grid">
+                <article class="gallery-card">
+                    <div class="gallery-item" data-fallback="narea">
+                        <img src="images/narea-conference.png" alt="narea conference" loading="lazy">
+                    </div>
+                    <p>poster of merit for research</p>
+                </article>
+
+                <article class="gallery-card">
+                    <div class="gallery-item" data-fallback="njbda">
+                        <img src="images/njbda-award.png" alt="njbda research award" loading="lazy">
+                    </div>
+                    <p>research award + conference presentation</p>
+                </article>
+
+                <article class="gallery-card">
+                    <div class="gallery-item" data-fallback="women's tech conference">
+                        <img src="images/womens-tech-conference.png" alt="women's tech conference" loading="lazy">
+                    </div>
+                    <p>nj ai hub / princeton</p>
+                </article>
+
+                <article class="gallery-card">
+                    <div class="gallery-item" data-fallback="aresty symposium">
+                        <img src="images/aresty-symposium.png" alt="aresty undergraduate research symposium" loading="lazy">
+                    </div>
+                    <p>undergraduate research symposium</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="presentations" class="section-block">
+            <h2>presentations</h2>
+            <div class="gallery-grid">
+                <article class="gallery-card">
+                    <div class="gallery-item" data-fallback="raise-26">
+                        <img src="images/raise-26.png" alt="raise-26 data science competition" loading="lazy">
+                    </div>
+                    <p>data science competition top project finalist</p>
+                </article>
+
+                <article class="gallery-card">
+                    <div class="gallery-item" data-fallback="afre">
+                        <img src="images/afre-presentation.png" alt="department of agricultural food and resource economics presentation" loading="lazy">
+                    </div>
+                    <p>department presentation of aresty research</p>
+                </article>
+
+                <article class="gallery-card">
+                    <div class="gallery-item" data-fallback="wids datathon">
+                        <img src="images/wids-datathon.png" alt="2026 women in data science datathon" loading="lazy">
+                    </div>
+                    <p>2026 women in data science datathon</p>
+                </article>
+
+                <article class="gallery-card">
+                    <div class="gallery-item" data-fallback="figma make-a-thon">
+                        <img src="images/figma-makeathon.png" alt="figma make-a-thon first place presentation" loading="lazy">
+                    </div>
+                    <p>first place for neural learning lab</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="community" class="section-block">
+            <h2>shetek + community</h2>
+            <div class="gallery-grid">
+                <article class="gallery-card">
+                    <div class="gallery-item" data-fallback="shetek @ rutgers">
+                        <img src="images/shetek-rutgers.png" alt="shetek rutgers event" loading="lazy">
+                    </div>
+                    <p>chapter events, workshops, and networking</p>
+                </article>
+
+                <article class="gallery-card">
+                    <div class="gallery-item" data-fallback="honors college">
+                        <img src="images/honors-college.png" alt="rutgers honors college" loading="lazy">
+                    </div>
+                    <p>marketing and communications</p>
+                </article>
+
+                <article class="gallery-card">
+                    <div class="gallery-item" data-fallback="peer tutoring">
+                        <img src="images/peer-tutoring.png" alt="peer tutoring coordinator" loading="lazy">
+                    </div>
+                    <p>coordinator and tutor moments</p>
+                </article>
+
+                <article class="gallery-card">
+                    <div class="gallery-item" data-fallback="henkel office visit">
+                        <img src="images/henkel-office-visit.png" alt="henkel office visit" loading="lazy">
+                    </div>
+                    <p>industry visit</p>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <script src="theme.js"></script>
+</body>
+</html>
