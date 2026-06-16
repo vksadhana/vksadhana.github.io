@@ -230,6 +230,11 @@ a:hover {
     margin: 0;
 }
 
+.social-links a span {
+    font-size: 0.74rem;
+    margin-left: 0.35rem;
+}
+
 /* ===== DIM ===== */
 .dim {
     color: var(--dim);
@@ -802,6 +807,12 @@ main, .page-main {
     margin-top: 2.7rem;
 }
 
+.prev-line {
+    color: var(--dim);
+    font-size: 0.78rem;
+    margin-top: 0.8rem;
+}
+
 .home-panel h2,
 .section-block h2 {
     color: var(--dim);
@@ -857,8 +868,8 @@ main, .page-main {
 }
 
 .about-page .about-grid {
-    grid-template-columns: minmax(240px, 0.82fr) minmax(0, 1.18fr);
-    gap: 2.2rem;
+    grid-template-columns: minmax(240px, 0.78fr) minmax(0, 1.22fr);
+    gap: 3rem;
     align-items: stretch;
 }
 
@@ -876,7 +887,11 @@ main, .page-main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 0.85rem;
-    margin-top: 2.5rem;
+    margin: 2.5rem auto 0;
+}
+
+.info-board {
+    max-width: 820px;
 }
 
 .info-board div {
@@ -884,6 +899,7 @@ main, .page-main {
     border-radius: 6px;
     padding: 0.9rem;
     background: color-mix(in srgb, var(--bg-secondary) 45%, transparent);
+    text-align: center;
 }
 
 .info-board h2 {
@@ -930,6 +946,39 @@ main, .page-main {
     padding: 1rem 1.1rem;
 }
 
+.logo-card {
+    display: grid;
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+}
+
+.org-logo {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg);
+    padding: 0.45rem;
+    justify-self: center;
+}
+
+.logo-fallback {
+    align-items: center;
+    color: var(--accent);
+    display: flex;
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    font-weight: 500;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.exp-body {
+    min-width: 0;
+}
+
 .exp-role {
     font-family: var(--font-sans);
     font-size: clamp(1rem, 1.8vw, 1.2rem);
@@ -938,6 +987,14 @@ main, .page-main {
 
 .exp-desc {
     max-width: 880px;
+}
+
+.activity-board {
+    margin-top: 1.6rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    background: color-mix(in srgb, var(--bg-secondary) 28%, transparent);
 }
 
 .page-heading-row {
@@ -980,8 +1037,9 @@ main, .page-main {
 }
 
 .research-card.compact {
-    grid-template-columns: 76px minmax(0, 1fr);
-    padding: 1rem;
+    grid-template-columns: 96px minmax(0, 1fr);
+    padding: 1.05rem;
+    align-items: start;
 }
 
 .research-card.highlight {
@@ -990,7 +1048,6 @@ main, .page-main {
 
 .logo-slot {
     align-items: center;
-    aspect-ratio: 1;
     background: var(--bg-secondary);
     border: 1px solid var(--border);
     border-radius: 8px;
@@ -999,7 +1056,15 @@ main, .page-main {
     font-family: var(--font-sans);
     font-size: 1.05rem;
     justify-content: center;
+    min-height: 88px;
+    padding: 0.8rem;
     text-transform: uppercase;
+}
+
+.logo-slot img {
+    max-width: 58px;
+    max-height: 58px;
+    object-fit: contain;
 }
 
 details {
@@ -1064,6 +1129,15 @@ summary {
     }
 
     .logo-slot {
-        width: 72px;
+        width: 86px;
+        min-height: 72px;
+    }
+
+    .logo-card {
+        grid-template-columns: 1fr;
+    }
+
+    .org-logo {
+        justify-self: start;
     }
 }

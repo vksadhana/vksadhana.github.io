@@ -9,7 +9,7 @@ function toggleTheme() {
 
 // apply saved theme on load
 (function() {
-    const saved = localStorage.getItem('theme') || 'light';
+    const saved = localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', saved);
     if (saved === 'dark') {
         const moon = document.getElementById('moon-icon');
