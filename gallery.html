@@ -3,36 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gallery — sadhana vasanthakumar</title>
+    <title>gallery - sadhana vasanthakumar</title>
     <link rel="icon" type="image/png" href="./icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-        .gallery-caption {
-            font-size: 0.72rem;
-            color: var(--dim);
-            margin-top: 0.4rem;
-            line-height: 1.4;
-        }
-        .gallery-item-wrap {
-            display: flex;
-            flex-direction: column;
-        }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1.2rem;
-            margin-top: 1rem;
-        }
-        .section-label {
-            font-size: 0.78rem;
-            color: var(--dim);
-            margin: 2.5rem 0 0.8rem;
-            letter-spacing: 0.03em;
-        }
-    </style>
 </head>
 <body>
     <nav>
@@ -42,7 +18,7 @@
         <div class="nav-links">
             <a href="index.html">home</a>
             <a href="about.html">about</a>
-            <a href="experience.html">experience</a>
+            <a href="experience.html">experience + leadership</a>
             <a href="projects.html">projects</a>
             <a href="research.html">research</a>
             <a href="gallery.html" class="active">gallery</a>
@@ -53,87 +29,57 @@
         </button>
     </nav>
 
-    <div class="page-main">
-        <p class="page-title">gallery — moments & milestones</p>
-        <p style="color: var(--dim); font-size: 0.82rem; margin-bottom: 0.5rem;">things i've done, places i've been, people i've met.</p>
+    <div class="page-main wide-page">
+        <p class="page-title">gallery</p>
 
-        <p class="section-label">conferences & presentations</p>
-        <div class="gallery-grid">
-            <!-- Replace gallery-placeholder divs with real images:
-                 <img src="images/njbda.jpg" alt="njbda symposium"> -->
-            <div class="gallery-item-wrap">
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">njbda symposium<br>rowan university</div>
-                </div>
-                <p class="gallery-caption">presenting workforce skill shifts research @ njbda symposium</p>
-            </div>
-
-            <div class="gallery-item-wrap">
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">btt ai studio<br>top 3 🎉</div>
-                </div>
-                <p class="gallery-caption">presenting predictive maintenance project @ break through tech ai studio</p>
-            </div>
-
-            <div class="gallery-item-wrap">
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">women's tech conference<br>nj ai hub, princeton</div>
-                </div>
-                <p class="gallery-caption">sheтek @ rutgers at the women's tech conference</p>
-            </div>
+        <div class="tab-bar">
+            <a href="#internships">internships + fellowships</a>
+            <a href="#conferences">conferences</a>
+            <a href="#presentations">presentations</a>
+            <a href="#community">community</a>
         </div>
 
-        <p class="section-label">sheтek & community</p>
-        <div class="gallery-grid">
-            <div class="gallery-item-wrap">
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">sheтek chapter<br>launch event</div>
-                </div>
-                <p class="gallery-caption">founding sheтek @ rutgers — first chapter event</p>
+        <section id="internships" class="section-block">
+            <h2>internships + externships + fellowships</h2>
+            <div class="gallery-grid">
+                <article class="gallery-card"><div class="gallery-item"><div class="gallery-placeholder">everytown labs</div></div><p>data & ai internship</p></article>
+                <article class="gallery-card"><div class="gallery-item"><div class="gallery-placeholder">accenture</div></div><p>break through tech ai studio</p></article>
+                <article class="gallery-card"><div class="gallery-item"><div class="gallery-placeholder">ai4all</div></div><p>ignite symposium + fellowship</p></article>
+                <article class="gallery-card"><div class="gallery-item"><div class="gallery-placeholder">pamten</div></div><p>technology externship</p></article>
+                <article class="gallery-card"><div class="gallery-item"><div class="gallery-placeholder">lcn consulting</div></div><p>mbs externship poster</p></article>
+                <article class="gallery-card"><div class="gallery-item"><div class="gallery-placeholder">assignment guru</div></div><p>micro-internship meet up</p></article>
             </div>
+        </section>
 
-            <div class="gallery-item-wrap">
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">networking night<br>industry event</div>
-                </div>
-                <p class="gallery-caption">sheтek industry networking night</p>
+        <section id="conferences" class="section-block">
+            <h2>conferences</h2>
+            <div class="gallery-grid">
+                <article class="gallery-card"><div class="gallery-item"><div class="gallery-placeholder">narea</div></div><p>poster of merit for research</p></article>
+                <article class="gallery-card"><div class="gallery-item"><div class="gallery-placeholder">njbda</div></div><p>research award + conference presentation</p></article>
+                <article class="gallery-card"><div class="gallery-item"><div class="gallery-placeholder">women's tech conference</div></div><p>nj ai hub / princeton</p></article>
+                <article class="gallery-card"><div class="gallery-item"><div class="gallery-placeholder">aresty symposium</div></div><p>undergraduate research symposium</p></article>
             </div>
+        </section>
 
-            <div class="gallery-item-wrap">
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">career workshop<br>with members</div>
-                </div>
-                <p class="gallery-caption">50+ members and counting</p>
+        <section id="presentations" class="section-block">
+            <h2>presentations</h2>
+            <div class="gallery-grid">
+                <article class="gallery-card"><div class="gallery-item"><div class="gallery-placeholder">raise-26</div></div><p>data science competition top 3 finalist</p></article>
+                <article class="gallery-card"><div class="gallery-item"><div class="gallery-placeholder">afre</div></div><p>department presentation of aresty research</p></article>
+                <article class="gallery-card"><div class="gallery-item"><div class="gallery-placeholder">wids datathon</div></div><p>2026 women in data science datathon</p></article>
+                <article class="gallery-card"><div class="gallery-item"><div class="gallery-placeholder">figma make-a-thon</div></div><p>first place for neural learning lab</p></article>
             </div>
-        </div>
+        </section>
 
-        <p class="section-label">fellowships & programs</p>
-        <div class="gallery-grid">
-            <div class="gallery-item-wrap">
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">break through tech<br>cornell tech</div>
-                </div>
-                <p class="gallery-caption">break through tech ai @ cornell tech</p>
+        <section id="community" class="section-block">
+            <h2>shetek + community</h2>
+            <div class="gallery-grid">
+                <article class="gallery-card"><div class="gallery-item"><div class="gallery-placeholder">shetek @ rutgers</div></div><p>chapter events, workshops, and networking</p></article>
+                <article class="gallery-card"><div class="gallery-item"><div class="gallery-placeholder">honors college</div></div><p>marketing and communications</p></article>
+                <article class="gallery-card"><div class="gallery-item"><div class="gallery-placeholder">peer tutoring</div></div><p>coordinator and tutor moments</p></article>
+                <article class="gallery-card"><div class="gallery-item"><div class="gallery-placeholder">henkel office visit</div></div><p>industry visit placeholder</p></article>
             </div>
-
-            <div class="gallery-item-wrap">
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">ai4all ignite<br>demo day</div>
-                </div>
-                <p class="gallery-caption">ai4all ignite demo day presentation</p>
-            </div>
-
-            <div class="gallery-item-wrap">
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">aresty symposium<br>spring 2025</div>
-                </div>
-                <p class="gallery-caption">aresty undergraduate research symposium</p>
-            </div>
-        </div>
-
-        <p style="color: var(--dim); font-size: 0.75rem; margin-top: 3rem;">
-            to add your own photos: drop image files into an <code>images/</code> folder and replace the placeholder divs with <code>&lt;img src="images/yourphoto.jpg"&gt;</code>
-        </p>
+        </section>
     </div>
 
     <script src="theme.js"></script>

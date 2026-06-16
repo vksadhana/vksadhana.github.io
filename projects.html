@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>projects — sadhana vasanthakumar</title>
+    <title>projects - sadhana vasanthakumar</title>
     <link rel="icon" type="image/png" href="./icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
         <div class="nav-links">
             <a href="index.html">home</a>
             <a href="about.html">about</a>
-            <a href="experience.html">experience</a>
+            <a href="experience.html">experience + leadership</a>
             <a href="projects.html" class="active">projects</a>
             <a href="research.html">research</a>
             <a href="gallery.html">gallery</a>
@@ -29,74 +29,102 @@
         </button>
     </nav>
 
-    <div class="page-main">
-        <p class="page-title">projects</p>
-
-        <div class="project-grid">
-
-            <div class="project-card">
-                <h3><a href="https://github.com/vksadhana" target="_blank" rel="noopener">hallucination self-correction ↗</a></h3>
-                <p>multi-agent llm systems that catch and correct their own hallucinations. agents critique each other's outputs and iterate toward factual accuracy.</p>
-                <div class="tags">
-                    <span class="tag">llms</span>
-                    <span class="tag">multi-agent</span>
-                    <span class="tag">python</span>
-                    <span class="tag">senior thesis</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <h3><a href="https://github.com/vksadhana" target="_blank" rel="noopener">workforce skill shifts ↗</a></h3>
-                <p>nlp pipeline analyzing 10k+ job postings to track how ai is reshaping what employers want. tokenization, keyword matching, logistic regression, anova.</p>
-                <div class="tags">
-                    <span class="tag">nlp</span>
-                    <span class="tag">web scraping</span>
-                    <span class="tag">labor markets</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <h3><a href="https://github.com/vksadhana" target="_blank" rel="noopener">pump failure predictor ↗</a></h3>
-                <p>predictive maintenance for industrial pump failure. random forest on 720k+ sensor readings. 94.8% recall, 99.94% precision — failures flagged 10 hours early. top 3 @ btt ai studio.</p>
-                <div class="tags">
-                    <span class="tag">random forest</span>
-                    <span class="tag">scikit-learn</span>
-                    <span class="tag">feature engineering</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <h3><a href="https://github.com/vksadhana" target="_blank" rel="noopener">fraud detection system ↗</a></h3>
-                <p>real-time credit card fraud detection on 280k+ transactions. smote for class imbalance, weighted random forest, responsible ai principles throughout.</p>
-                <div class="tags">
-                    <span class="tag">fraud detection</span>
-                    <span class="tag">smote</span>
-                    <span class="tag">streamlit</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <h3><a href="https://github.com/vksadhana" target="_blank" rel="noopener">semantic drift detector ↗</a></h3>
-                <p>tracks how word meanings evolve over time across reddit and news archives. gensim word embeddings, procrustes alignment, cosine similarity, d3.js visualization.</p>
-                <div class="tags">
-                    <span class="tag">nlp</span>
-                    <span class="tag">gensim</span>
-                    <span class="tag">d3.js</span>
-                    <span class="tag">postgresql</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <h3><a href="https://github.com/vksadhana" target="_blank" rel="noopener">ai recruitment prototype ↗</a></h3>
-                <p>ats accuracy improvement using spacy + nltk + scikit-learn. significantly outperformed existing 50% ats accuracy rates. co-authored 51-page strategic analysis.</p>
-                <div class="tags">
-                    <span class="tag">spacy</span>
-                    <span class="tag">nltk</span>
-                    <span class="tag">nlp</span>
-                </div>
-            </div>
-
+    <div class="page-main wide-page">
+        <div class="page-heading-row">
+            <p class="page-title">projects</p>
+            <a class="ghost-link" href="https://github.com/vksadhana" target="_blank" rel="noopener">github</a>
         </div>
+
+        <div class="tab-bar project-filter" aria-label="project categories">
+            <a href="#data-analytics">data analytics</a>
+            <a href="#ai-ml">ai/ml</a>
+            <a href="#nlp">nlp</a>
+            <a href="#design">design + tools</a>
+        </div>
+
+        <section id="data-analytics" class="section-block">
+            <h2>data analytics</h2>
+            <div class="project-grid">
+                <article class="project-card featured">
+                    <div class="project-topline"><span>award</span><span>top 3 finalist</span></div>
+                    <h3><a href="https://github.com/vksadhana" target="_blank" rel="noopener">earnings volatility intelligence</a></h3>
+                    <p>analyzed earnings-driven volatility across major technology stocks using statistical modeling and bayesian methods, improving prediction coverage from 86% to 93%.</p>
+                    <div class="tags"><span class="tag">python</span><span class="tag">r</span><span class="tag">bayesian inference</span><span class="tag">financial analytics</span></div>
+                </article>
+
+                <article class="project-card">
+                    <h3><a href="https://github.com/vksadhana" target="_blank" rel="noopener">nonprofit impact dashboards</a></h3>
+                    <p>built powerbi and tableau dashboards for program outcomes, sponsorship growth, and community impact reporting at itiah angels for learning.</p>
+                    <div class="tags"><span class="tag">powerbi</span><span class="tag">tableau</span><span class="tag">data visualization</span></div>
+                </article>
+            </div>
+        </section>
+
+        <section id="ai-ml" class="section-block">
+            <h2>ai/ml</h2>
+            <div class="project-grid">
+                <article class="project-card featured">
+                    <div class="project-topline"><span>award</span><span>top 3 @ btt ai studio</span></div>
+                    <h3><a href="https://github.com/vksadhana" target="_blank" rel="noopener">accenture oil & gas pump failure prediction modeling</a></h3>
+                    <p>built a predictive maintenance system on 720k+ sensor readings from 50 industrial pumps, forecasting failures 10 hours in advance with 94.8% recall and 99.94% precision.</p>
+                    <div class="tags"><span class="tag">python</span><span class="tag">scikit-learn</span><span class="tag">random forest</span><span class="tag">feature engineering</span></div>
+                </article>
+
+                <article class="project-card featured">
+                    <div class="project-topline"><span>award</span><span>best project</span></div>
+                    <h3><a href="https://github.com/vksadhana" target="_blank" rel="noopener">real-time credit card fraud detection</a></h3>
+                    <p>built a real-time fraud detection system analyzing 280k+ transactions under extreme class imbalance using machine learning classification models and a streamlit demo.</p>
+                    <div class="tags"><span class="tag">python</span><span class="tag">weighted random forest</span><span class="tag">smote</span><span class="tag">streamlit</span></div>
+                </article>
+            </div>
+        </section>
+
+        <section id="nlp" class="section-block">
+            <h2>nlp</h2>
+            <div class="project-grid">
+                <article class="project-card">
+                    <h3><a href="https://github.com/vksadhana" target="_blank" rel="noopener">semantic shift detection</a></h3>
+                    <p>tracked how word meanings evolve across online communities using reddit and news archives, rolling word embeddings, procrustes alignment, cosine similarity, and d3.js visualization.</p>
+                    <div class="tags"><span class="tag">gensim</span><span class="tag">huggingface</span><span class="tag">postgresql</span><span class="tag">d3.js</span></div>
+                </article>
+
+                <article class="project-card">
+                    <h3><a href="https://github.com/vksadhana" target="_blank" rel="noopener">news headline analysis</a></h3>
+                    <p>organized news headlines into analyzable signals for trend tracking, classification, and text-based insight generation.</p>
+                    <div class="tags"><span class="tag">nlp</span><span class="tag">text classification</span><span class="tag">python</span></div>
+                </article>
+
+                <article class="project-card">
+                    <h3><a href="https://github.com/vksadhana" target="_blank" rel="noopener">ai recruitment prototype</a></h3>
+                    <p>built an nlp-driven candidate matching prototype using spacy, nltk, and scikit-learn, supported by stakeholder interviews and enterprise workflow documentation.</p>
+                    <div class="tags"><span class="tag">spacy</span><span class="tag">nltk</span><span class="tag">scikit-learn</span><span class="tag">consulting</span></div>
+                </article>
+            </div>
+        </section>
+
+        <section id="design" class="section-block">
+            <h2>design + tools</h2>
+            <div class="project-grid">
+                <article class="project-card featured">
+                    <div class="project-topline"><span>award</span><span>first place</span></div>
+                    <h3><a href="https://github.com/vksadhana" target="_blank" rel="noopener">neural learning lab</a></h3>
+                    <p>designed an interactive platform that makes neural networks and ai easier to understand through clickable diagrams, spreading-activation mind maps, and a retro ai companion.</p>
+                    <div class="tags"><span class="tag">figma</span><span class="tag">interactive design</span><span class="tag">ai education</span></div>
+                </article>
+
+                <article class="project-card">
+                    <h3><a href="https://github.com/vksadhana" target="_blank" rel="noopener">interactive study room</a></h3>
+                    <p>built a figma prototype with a candle-based pomodoro timer, interactive to-do list, day-night cycles, and a tamagotchi break-time game.</p>
+                    <div class="tags"><span class="tag">figma</span><span class="tag">pomodoro</span><span class="tag">ux design</span></div>
+                </article>
+
+                <article class="project-card">
+                    <h3><a href="https://github.com/vksadhana" target="_blank" rel="noopener">workforce skill shifts</a></h3>
+                    <p>analyzed 25,000+ job postings to quantify how generative ai shifted entry-level labor market requirements in agriculture and sustainability sectors.</p>
+                    <div class="tags"><span class="tag">nlp pipeline</span><span class="tag">fixed-effects regression</span><span class="tag">labor markets</span></div>
+                </article>
+            </div>
+        </section>
     </div>
 
     <script src="theme.js"></script>

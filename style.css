@@ -727,3 +727,343 @@ a:hover {
 main, .page-main {
     animation: fadeUp 0.4s ease forwards;
 }
+
+/* ===== 2026 CONTENT REFRESH ===== */
+.home-main {
+    width: min(920px, 92vw);
+    max-width: none;
+}
+
+.wide-page {
+    max-width: min(1040px, 92vw);
+}
+
+.home-hero {
+    padding: 0.25rem 0 1.5rem;
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-size: 0.72rem;
+    margin-bottom: 0.35rem;
+}
+
+.home-hero h1,
+.about-text h1 {
+    font-family: var(--font-sans);
+    font-size: clamp(2.25rem, 7vw, 5.5rem);
+    font-weight: 500;
+    line-height: 0.95;
+    margin: 0 0 1rem;
+}
+
+.about-text h1 {
+    font-size: clamp(1.45rem, 3vw, 2.3rem);
+    line-height: 1.05;
+}
+
+.home-bio {
+    max-width: 720px;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    color: var(--fg);
+}
+
+.home-links,
+.tab-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin: 1.35rem 0 0;
+}
+
+.home-links a,
+.tab-bar a,
+.ghost-link {
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--fg);
+    font-size: 0.72rem;
+    padding: 0.32rem 0.75rem;
+    text-decoration: none;
+}
+
+.home-links a:hover,
+.tab-bar a:hover,
+.ghost-link:hover {
+    border-color: var(--accent);
+    background: var(--hover-bg);
+    color: var(--hover-fg);
+    margin: 0;
+    padding: 0.32rem 0.75rem;
+}
+
+.home-panel,
+.section-block {
+    margin-top: 2.7rem;
+}
+
+.home-panel h2,
+.section-block h2 {
+    color: var(--dim);
+    font-size: 0.78rem;
+    margin-bottom: 0.8rem;
+}
+
+.mini-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.mini-grid div,
+.award-card {
+    border-left: 2px solid var(--accent);
+    background: color-mix(in srgb, var(--bg-secondary) 58%, transparent);
+    padding: 0.8rem 0.95rem;
+}
+
+.mini-grid strong,
+.mini-grid span {
+    display: block;
+}
+
+.mini-grid span {
+    color: var(--dim);
+    margin-top: 0.25rem;
+}
+
+.compact-list.two-col {
+    columns: 2;
+    column-gap: 2rem;
+}
+
+.skill-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.skill-cloud span {
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--fg);
+    font-size: 0.7rem;
+    padding: 0.2rem 0.55rem;
+}
+
+.about-page {
+    max-width: min(960px, 92vw);
+}
+
+.about-page .about-grid {
+    grid-template-columns: minmax(240px, 0.82fr) minmax(0, 1.18fr);
+    gap: 2.2rem;
+    align-items: stretch;
+}
+
+.about-page .about-photo {
+    aspect-ratio: 4 / 5;
+    min-height: 420px;
+}
+
+.about-text {
+    align-self: center;
+}
+
+.info-board,
+.award-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.85rem;
+    margin-top: 2.5rem;
+}
+
+.info-board div {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.9rem;
+    background: color-mix(in srgb, var(--bg-secondary) 45%, transparent);
+}
+
+.info-board h2 {
+    margin-top: 0;
+}
+
+.info-board p {
+    color: var(--dim);
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.side-jump {
+    position: fixed;
+    top: 45%;
+    left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    z-index: 60;
+}
+
+.side-jump a {
+    border-left: 3px solid var(--border);
+    color: var(--dim);
+    font-size: 0.68rem;
+    padding: 0.15rem 0 0.15rem 0.5rem;
+    text-decoration: none;
+}
+
+.side-jump a:hover {
+    border-color: var(--accent);
+    background: transparent;
+    color: var(--fg);
+    margin: 0;
+    padding: 0.15rem 0 0.15rem 0.5rem;
+}
+
+.exp-item {
+    background: color-mix(in srgb, var(--bg-secondary) 35%, transparent);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+}
+
+.exp-role {
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    letter-spacing: 0;
+}
+
+.exp-desc {
+    max-width: 880px;
+}
+
+.page-heading-row {
+    align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.project-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.project-card {
+    min-height: 235px;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card .tags {
+    margin-top: auto;
+}
+
+.project-card.featured {
+    border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+}
+
+.project-topline {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.6rem;
+    color: var(--accent);
+    font-size: 0.66rem;
+    margin-bottom: 0.7rem;
+}
+
+.research-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.research-card.compact {
+    grid-template-columns: 76px minmax(0, 1fr);
+    padding: 1rem;
+}
+
+.research-card.highlight {
+    border-color: color-mix(in srgb, var(--accent) 60%, var(--border));
+}
+
+.logo-slot {
+    align-items: center;
+    aspect-ratio: 1;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--accent);
+    display: flex;
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+details {
+    border-left: 2px solid var(--accent);
+    color: var(--dim);
+    font-size: 0.74rem;
+    margin: 0.7rem 0;
+    padding-left: 0.75rem;
+}
+
+summary {
+    color: var(--fg);
+    cursor: pointer;
+}
+
+.gallery-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.gallery-card p {
+    color: var(--dim);
+    font-size: 0.76rem;
+    line-height: 1.45;
+    margin: 0;
+}
+
+.gallery-item {
+    aspect-ratio: 4 / 3;
+}
+
+.gallery-placeholder {
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--accent) 14%, transparent), transparent 58%),
+        var(--bg-secondary);
+    text-transform: lowercase;
+}
+
+@media (max-width: 960px) {
+    .side-jump {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .mini-grid,
+    .about-page .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .compact-list.two-col {
+        columns: 1;
+    }
+
+    .about-page .about-photo {
+        min-height: 0;
+    }
+
+    .research-card.compact {
+        grid-template-columns: 1fr;
+    }
+
+    .logo-slot {
+        width: 72px;
+    }
+}
