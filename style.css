@@ -687,10 +687,6 @@ a:hover {
     z-index: 1;
 }
 
-.gallery-focus-up img {
-    object-position: center 28%;
-}
-
 .gallery-placeholder {
     width: 100%;
     height: 100%;
