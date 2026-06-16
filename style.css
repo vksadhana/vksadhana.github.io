@@ -377,32 +377,260 @@ a:hover {
 }
 
 /* ===== RESEARCH ===== */
-.research-item {
-    margin-bottom: 2.5rem;
-    padding-bottom: 2.5rem;
-    border-bottom: 1px solid var(--border);
+.research-intro {
+    max-width: 620px;
+    margin: -1.2rem 0 2.2rem;
 }
 
-.research-item:last-child {
-    border-bottom: none;
+.research-intro p {
+    color: var(--dim);
+    font-size: 0.84rem;
+    line-height: 1.75;
+}
+
+.research-timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.35rem;
+    padding-left: 1.45rem;
+}
+
+.research-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0.35rem;
+    bottom: 0.35rem;
+    left: 0.35rem;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--accent) 9%, var(--border) 88%, transparent);
+}
+
+.research-item {
+    position: relative;
+}
+
+.research-item::before {
+    content: '';
+    position: absolute;
+    top: 0.55rem;
+    left: -1.32rem;
+    width: 0.58rem;
+    height: 0.58rem;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    background: var(--bg);
+    box-shadow: 0 0 0 5px var(--bg);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.research-item:hover::before {
+    background: var(--accent);
+    transform: scale(1.18);
+}
+
+.research-date {
+    color: var(--accent);
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    margin: 0 0 0.45rem;
+}
+
+.research-card {
+    display: grid;
+    grid-template-columns: minmax(92px, 0.42fr) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: stretch;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--bg) 84%, var(--bg-secondary));
+    padding: 0.95rem;
+    overflow: hidden;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.research-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 30px rgba(26, 26, 46, 0.08);
+}
+
+[data-theme="dark"] .research-card:hover {
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
+}
+
+.research-visual {
+    min-height: 132px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background:
+        linear-gradient(145deg, color-mix(in srgb, var(--accent) 20%, transparent), transparent 55%),
+        var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.research-visual::after {
+    content: '';
+    position: absolute;
+    inset: auto -20% -35% 18%;
+    height: 58%;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--accent) 18%, transparent);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.research-card:hover .research-visual::after {
+    transform: translateY(-10px) scale(1.08);
+    opacity: 0.85;
+}
+
+.research-visual svg {
+    width: min(78%, 104px);
+    height: auto;
+    position: relative;
+    z-index: 1;
+    fill: none;
+    stroke: var(--fg);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.82;
+    transition: transform 0.25s ease, stroke 0.25s ease;
+}
+
+.research-card:hover .research-visual svg {
+    stroke: var(--accent);
+    transform: translateY(-3px) scale(1.04);
+}
+
+.research-content {
+    min-width: 0;
+}
+
+.research-kicker {
+    color: var(--dim);
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
+    margin: 0 0 0.2rem;
 }
 
 .research-item h3 {
-    font-size: inherit;
+    font-size: clamp(0.92rem, 1.9vw, 1.05rem);
     font-weight: 500;
-    margin: 0 0 0.3rem;
+    margin: 0 0 0.2rem;
+    line-height: 1.35;
 }
 
 .research-item .venue {
     color: var(--accent);
-    font-size: 0.78rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.76rem;
+    margin-bottom: 0.55rem;
 }
 
 .research-item p {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     color: var(--dim);
     margin: 0 0 0.7rem;
+    line-height: 1.66;
+}
+
+.research-hover {
+    max-height: 0;
+    overflow: hidden;
+    color: var(--fg);
+    font-size: 0.73rem;
+    opacity: 0;
+    border-left: 2px solid var(--accent);
+    padding-left: 0.65rem;
+    margin: 0;
+    transition: max-height 0.28s ease, opacity 0.2s ease, margin 0.2s ease;
+}
+
+.research-card:hover .research-hover,
+.research-card:focus-within .research-hover {
+    max-height: 4rem;
+    opacity: 0.82;
+    margin: 0.15rem 0 0.85rem;
+}
+
+.robot-visual {
+    background:
+        linear-gradient(145deg, rgba(107, 111, 212, 0.2), transparent 56%),
+        linear-gradient(35deg, transparent 0 42%, rgba(107, 111, 212, 0.12) 42% 45%, transparent 45%),
+        var(--bg-secondary);
+}
+
+.fairness-visual {
+    background:
+        radial-gradient(circle at 72% 28%, rgba(107, 111, 212, 0.22), transparent 26%),
+        var(--bg-secondary);
+}
+
+.education-visual {
+    background:
+        linear-gradient(180deg, rgba(107, 111, 212, 0.16), transparent),
+        repeating-linear-gradient(0deg, transparent 0 13px, rgba(107, 111, 212, 0.09) 13px 14px),
+        var(--bg-secondary);
+}
+
+.art-visual {
+    background:
+        radial-gradient(circle at 50% 48%, rgba(107, 111, 212, 0.2), transparent 36%),
+        conic-gradient(from 130deg, transparent, rgba(107, 111, 212, 0.13), transparent 55%),
+        var(--bg-secondary);
+}
+
+.language-visual {
+    background:
+        linear-gradient(120deg, rgba(107, 111, 212, 0.18), transparent 48%),
+        repeating-linear-gradient(90deg, transparent 0 15px, rgba(107, 111, 212, 0.08) 15px 16px),
+        var(--bg-secondary);
+}
+
+.market-visual {
+    background:
+        linear-gradient(160deg, rgba(107, 111, 212, 0.18), transparent 45%),
+        repeating-linear-gradient(90deg, transparent 0 18px, rgba(107, 111, 212, 0.08) 18px 19px),
+        var(--bg-secondary);
+}
+
+.review-visual {
+    background:
+        linear-gradient(145deg, rgba(107, 111, 212, 0.16), transparent 56%),
+        repeating-linear-gradient(0deg, transparent 0 16px, rgba(107, 111, 212, 0.08) 16px 17px),
+        var(--bg-secondary);
+}
+
+@media (max-width: 700px) {
+    .research-timeline {
+        padding-left: 1rem;
+    }
+
+    .research-timeline::before {
+        left: 0.15rem;
+    }
+
+    .research-item::before {
+        left: -1.12rem;
+    }
+
+    .research-card {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+    }
+
+    .research-visual {
+        min-height: 118px;
+        aspect-ratio: 16 / 9;
+    }
+
+    .research-card:hover {
+        transform: translateY(-2px);
+    }
 }
 
 /* ===== GALLERY ===== */
